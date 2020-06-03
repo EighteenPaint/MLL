@@ -55,5 +55,6 @@ def gradAscent(dataMatIn, classLabels):
     for k in range(maxCycle):
         h = sigmoid(dataMatrix * weights)  # 矩阵运算
         error = (labelMat - h)
-        weights = weights + alpha * dataMatrix.transpose()*error  # 这种方法处理妙啊，明天推导一下
+        weights = weights + alpha * dataMatrix.transpose()*error  # 这种方法处理妙啊，明天推导一下,为什么要乘以error
     return weights
+
