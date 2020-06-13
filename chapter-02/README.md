@@ -46,4 +46,4 @@
 在心上人的分类中一定要使用三个属性进行计算么，我们应该可以选出最具有代表性的数据作为，我称其为特征数据，这样可以减少计算量
 
 
-对于matpltlib绘图的使用 https://www.jianshu.com/p/da385a35f68d 
+[对于matpltlib绘图的使用](https://www.jianshu.com/p/da385a35f68d) 
