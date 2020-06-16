@@ -18,6 +18,12 @@ def loadDataSet(fileName, delim='\t'):
 
 
 def pca(dataMat, topNfeat=999999):
+    """
+
+    :param dataMat: 数据集
+    :param topNfeat: 想要降低到多少维
+    :return:
+    """
     meanVals = np.mean(dataMat, axis=0)  # 计算平均数
     meanRemoved = dataMat - meanVals  # 数据去中心化处理
     covMat = np.cov(meanRemoved, rowvar=0)  # 计算协方差
