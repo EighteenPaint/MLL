@@ -38,10 +38,10 @@ def binSplitDataSet(dataSet, feature, value):
     mat1 = []
     lineIndex = np.nonzero(dataSet[:, feature] > value)[0]
     if len(lineIndex) != 0:
-        mat0 = dataSet[lineIndex, :][0]  # ???
+        mat0 = dataSet[lineIndex, :]  # ???
     lineIndex = np.nonzero(dataSet[:, feature] <= value)[0]
     if len(lineIndex) != 0:
-        mat1 = dataSet[lineIndex, :][0]
+        mat1 = dataSet[lineIndex, :]
     return mat0, mat1
 
 
