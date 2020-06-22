@@ -40,12 +40,20 @@ train_labels = to_categorical(train_labels)
 test_labels = to_categorical(test_labels)
 
 # 编译模型
-model.compile(optimizer='rmsprop',
-              loss='categorical_crossentropy',
-              metrics=['accuracy'])
+param = {'optimizer':'rmsprop',
+              'loss':'categorical_crossentropy',
+              'metrics':['accuracy']}
+model.compile(**param)
+# model.compile(optimizer='rmsprop',
+#               loss='categorical_crossentropy',
+#               metrics=['accuracy'])
 # 训练模型
 model.fit(train_images, train_labels, 64, 5)
-
+model.save('minst-model.h5')
 # 测试模型
 test_loss, test_acc = model.evaluate(test_images, test_labels)
 print(test_loss, test_acc)
+
+# 使用
+
+
