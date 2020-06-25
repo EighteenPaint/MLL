@@ -6,6 +6,7 @@
 #@time: 2020/6/24 10:19
 #@email:chenbinkria@163.com
 """
+import keras
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -17,10 +18,10 @@ mean = train_data[:200000].mean(axis=0)
 train_data = train_data - mean
 # std = train_data[:200000].std(axis=0)
 std = np.std(train_data[:200000], axis=0)  # 这里曾经因为类型不对应无法进行计算，保险起见最好转换一下或者检查一下
-data = train_data / std
+train_data = train_data / std
 
 
-# print(data)
+print(train_data)
 
 
 # 生成器
@@ -99,21 +100,26 @@ model.add(layers.Flatten(input_shape=(lookback // step, train_data.shape[-1]))) 
 model.add(layers.Dense(32, activation='relu'))
 model.add(layers.Dense(1))
 
-model.compile(optimizer=RMSprop(), loss='mae')  # 这里使用标准差来衡量
+model.compile(optimizer=RMSprop(), loss='mae',metrics=['acc'])  # 这里使用标准差来衡量
+# history = model.fit_generator(train_gen,
+#                               steps_per_epoch=500,
+#                               epochs=20,
+#                               validation_data=val_gen,
+#                               validation_steps=val_steps)
+
+# 使用TensorFlow board web 监视器
+callbacks = [
+    keras.callbacks.TensorBoard(
+        log_dir='log',
+        histogram_freq=1,
+        embeddings_freq=1,
+    )
+]
+
+# 开始训练
 history = model.fit_generator(train_gen,
                               steps_per_epoch=500,
                               epochs=20,
                               validation_data=val_gen,
-                              validation_steps=val_steps)
-
-import matplotlib.pyplot as plt
-
-loss = history.history['loss']
-val_loss = history.history['val_loss']
-epochs = range(1, len(loss) + 1)
-plt.figure()
-plt.plot(epochs, loss, 'bo', label='Training loss')
-plt.plot(epochs, val_loss, 'b', label='Validation loss')
-plt.title('Training and validation loss')
-plt.legend()
-plt.show()
+                              validation_steps=val_steps,
+                              callbacks=callbacks)
