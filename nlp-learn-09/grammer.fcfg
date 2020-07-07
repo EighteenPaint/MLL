@@ -1,0 +1,9 @@
+% start S
+S -> NP[NUM=?n] VP[NUM=?n] ADJ
+ADJ -> "happy"
+NP[NUM=I] -> "I"
+NP[NUM=YOU] -> "You" | "you"
+NP[NUM=H] -> "she" | "he" |"He"|"She"
+VP[NUM=I] -> "am"
+VP[NUM=YOU] -> "are" | "were"
+VP[NUM=H] -> "is" | "was"
