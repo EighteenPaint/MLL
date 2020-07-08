@@ -110,7 +110,7 @@ model.compile(optimizer=RMSprop(), loss='mae',metrics=['acc'])  # 这里使用�
 # 使用TensorFlow board web 监视器
 callbacks = [
     keras.callbacks.TensorBoard(
-        log_dir='log',
+        log_dir='dl-learn/dl-learn-07/log',
         histogram_freq=1,
         embeddings_freq=1,
     )
