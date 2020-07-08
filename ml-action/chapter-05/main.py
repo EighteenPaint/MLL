@@ -8,5 +8,5 @@
 import logistic
 if __name__ == '__main__':
     dataArr,labelMat = logistic.loadDataSet()
-    weights = logistic.gradAscent(dataArr,labelMat)
+    weights = logistic.gradAscent(dataArr, labelMat)
     print(weights)

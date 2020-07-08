@@ -12,6 +12,6 @@ import apriori
 
 if __name__ == '__main__':
     dataSet = apriori.loadDataSet()
-    L ,supportData = apriori.apriori(dataSet,minSupport=0.5)
-    rules = apriori.generateRules(L,supportData)
+    L ,supportData = apriori.apriori(dataSet, minSupport=0.5)
+    rules = apriori.generateRules(L, supportData)
     pprint(rules)

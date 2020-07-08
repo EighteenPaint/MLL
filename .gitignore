@@ -1,5 +1,5 @@
 ##ignore this file##
-chapter-02/testDigits/
+ml-action/chapter-02/testDigits/
 .gitignore
 .idea/.gitignore
 .idea/ML-ACTION.iml
@@ -7,11 +7,11 @@ chapter-02/testDigits/
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
-chapter-04/__pycache__/
-chapter-05/__pycache__/
-chapter-09/__pycache__/
-chapter-11/__pycache__/
-chapter-12/__pycache__/
-chapter-13/__pycache__/
-chapter-14/__pycache__/
-chapter-02/trainingDigits/
+ml-action/chapter-04/__pycache__/
+ml-action/chapter-05/__pycache__/
+ml-action/chapter-09/__pycache__/
+ml-action/chapter-11/__pycache__/
+ml-action/chapter-12/__pycache__/
+ml-action/chapter-13/__pycache__/
+ml-action/chapter-14/__pycache__/
+ml-action/chapter-02/trainingDigits/
