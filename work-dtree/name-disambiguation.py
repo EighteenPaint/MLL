@@ -8,7 +8,6 @@
 """
 import random
 
-
 """
 问题描述：同名但不同作者区分，即同名消歧
 """
@@ -94,11 +93,16 @@ import numpy as np
 
 # dis_df = pd.DataFrame(distance)
 eps_stat_info = []
-for eps in np.arange(start=3.4,stop=5,step=0.1):
-    print("eps:",eps)
-    for min_sample in np.arange(start=2,stop=20,step=1):
-        print("min_sample:",min_sample)
-        y_pred = DBSCAN(eps=eps,min_samples=min_sample).fit_predict(word_vectors)
-        cluster = set([clazz for clazz in y_pred if clazz != -1])
-        eps_stat_info.append({'eps': eps, 'n_clusters': cluster,"min_sample":min_sample})
-print(pd.DataFrame(eps_stat_info).loc[])
+# for eps in np.arange(start=3.4,stop=5,step=0.1):
+#     print("eps:",eps)
+#     for min_sample in np.arange(start=2,stop=20,step=1):
+#         print("min_sample:",min_sample)
+#         y_pred = DBSCAN(eps=eps,min_samples=min_sample).fit_predict(word_vectors)
+#         cluster = set([clazz for clazz in y_pred if clazz != -1])
+#         eps_stat_info.append({'eps': eps, 'n_clusters': cluster,"min_sample":min_sample})
+# print(pd.DataFrame(eps_stat_info))
+y_pred = DBSCAN(eps=3.8, min_samples=5).fit_predict(word_vectors)
+print("result:",y_pred)
+# 欧式距离是否可以很好的:对于one hot 编码，特别是居于频率的one hot编码的数据，可以很好的定量分析
+
+#思路2：居于神经网络监督学习的想法，将问题转化为分类问题，我们想要找到一个空间变换，将他们向量映射到领域空间（这是我们定义的），只不过实际上又变成分类问题
