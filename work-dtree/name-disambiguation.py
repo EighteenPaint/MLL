@@ -102,7 +102,11 @@ eps_stat_info = []
 #         eps_stat_info.append({'eps': eps, 'n_clusters': cluster,"min_sample":min_sample})
 # print(pd.DataFrame(eps_stat_info))
 y_pred = DBSCAN(eps=3.8, min_samples=5).fit_predict(word_vectors)
-print("result:",y_pred)
+print("result:", y_pred)
 # 欧式距离是否可以很好的:对于one hot 编码，特别是居于频率的one hot编码的数据，可以很好的定量分析
 
-#思路2：居于神经网络监督学习的想法，将问题转化为分类问题，我们想要找到一个空间变换，将他们向量映射到领域空间（这是我们定义的），只不过实际上又变成分类问题
+# 思路2：居于神经网络监督学习的想法，将问题转化为分类问题，我们想要找到一个空间变换，将他们向量映射到领域空间（这是我们定义的），只不过实际上又变成分类问题
+# 思路3
+# one hot 虽然解决了次序问题，并且可以很好的使用欧式距离，但是矩阵过于稀疏，考虑是否可以使用向量，需要满足
+# 1.不受次序影响（对向量求均值，这样），这里的向量可以结合思路2的方式，想办法求个空间变换（参考word2vec，基于神经网络的方式求个映射）
+# 2.使用向量余弦相似度进行近邻聚类，需要人工确定
