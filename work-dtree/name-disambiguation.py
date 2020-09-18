@@ -110,3 +110,8 @@ print("result:", y_pred)
 # one hot 虽然解决了次序问题，并且可以很好的使用欧式距离，但是矩阵过于稀疏，考虑是否可以使用向量，需要满足
 # 1.不受次序影响（对向量求均值，这样），这里的向量可以结合思路2的方式，想办法求个空间变换（参考word2vec，基于神经网络的方式求个映射）
 # 2.使用向量余弦相似度进行近邻聚类，需要人工确定
+def loadData(path):
+    df = pd.read_json(path)
+    print(df)
+if __name__ == '__main__':
+    loadData("/Users/benny.chen/Desktop/datas/name-dis/train/train_pub.json")
